@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PGS SOFTWARE - zadanie</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="PGS SOFTWARE" srcset="">
+    </header>
+    <main>
+        <div class="search-bar-wrapper">
+            <h3>iTunes api example</h3>
+            <input type="text" id="searchSongTextInput" placeholder="Search songs.."><button
+                id="searchButton">serach</button>
+            <p>Search by song title, author, song number, lyrics, catalog or copyright owner</p>
+        </div>
+        
+            <div id="searchResult" class="searchResult"></div>
+            <div id="output" class="output">
+        
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer-flex-container">
+            <hr class="line">Powered by PGS
+            <hr class="line">
+        </div>
+    </footer>
+    <script>
+        
+        const getSongInfo = document.getElementById("searchButton");
+
+        getSongInfo.addEventListener('click', () => {
+            let searchString = document.getElementById("searchSongTextInput").value;
+            console.log(searchString);
+            
+            fetch(`https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`)
+                .then((data) => {
+                    return data.json()
+                })
+                .then((ret) => {
+                    console.log(ret)
+                    let searchResult = `<h4>Found ${ret.resultCount} songs</h4>`;
+                    let output = ``;
+                    let i=1;
+                    ret.results.forEach(ret => {
+                        
+                        output += `
+                        <div class="songDisplayBox">   
+                            <div class="imgBox">
+                                <img src="${ret.artworkUrl100}" alt="" class="songIMG">
+                            </div> 
+                            <div class="songDescription">
+                                    <p class="songName"> ${ret.collectionName} <p>
+                                    <p class="artist"> By ${ret.artistName} <p>
+                            </div>
+                        </div>
+                        `
+                        i++;
+                    })
+                    document.getElementById("searchResult").innerHTML = searchResult;
+                    document.getElementById("output").innerHTML = output;
+                })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+$colors:(search-bg: rgb(45, 45, 45),
+    search-btn: #f7941d,
+);
+
+@function getColor($col-name) {
+    @return map-get($colors, $col-name);
+}
+
+@mixin desktop() {
+    @media only screen and (min-width: 1300px) {
+        @content;
+    }
+}
+
+@mixin medium() {
+    @media only screen and (min-width: 800px, max-width 1299px) {
+        @content;
+    }
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    header {
+        width: 100%;
+        max-height: 70px;
+
+        @include desktop {
+            max-width: 900px;
+        }
+    }
+
+    main {
+        width: 100%;
+        color: white;
+        text-align: center;
+        letter-spacing: 0.1rem;
+
+        .search-bar-wrapper {
+            background-color: getColor(search-bg);
+
+            h3 {
+                padding-top: 30px;
+                padding-bottom: 10px;
+            }
+
+            input {
+                padding: 10px 10px;
+                border-radius: 15px 0 0 15px;
+                border: none;
+            }
+
+            button {
+                padding: 10px;
+                border-radius: 0 15px 15px 0;
+                background-color: getColor(search-btn);
+                color: white;
+                border: none;
+            }
+
+            p {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+
+        }
+
+
+
+
+        .searchResult {
+            color: black;
+        }
+
+        .output {
+            max-width: 900px;
+            margin-right: auto;
+            margin-left: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-column-gap: 25px;
+            grid-row-gap: 3rem;
+            width: 100%;
+
+
+
+            .songDisplayBox {
+                width: 100%;
+                color: black;
+                display: flex;
+                height: contain;
+                padding: 17px;
+
+                .imgBox {
+                    width: 33.3%;
+                    height: contain;
+                    display: flex;
+
+                    .songIMG {
+                        width: 100px;
+                        height: 100px;
+                        border: 3px solid black;
+                        align-self: center;
+                        justify-self: center;
+                    }
+                }
+
+
+                .songDescription {
+                    box-sizing: border-box;
+                    margin-left: 20px;
+                    height: fit-content;
+                    width: fit-content;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 0.8rem;
+
+                    .songName {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .songDisplayBox:hover {
+                border: 3px getColor(search-btn) solid;
+            }
+        }
+
+        @include desktop {
+            .output {
+                grid-template-columns: auto auto auto;
+            }
+        }
+        @include medium {
+            .output {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    footer {
+        text-align: center;
+        color: white;
+        background-color: getColor(search-bg);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .line {
+            width: 30px;
+        }
+
+        @include desktop {}
+    }
+}
