@@ -13,7 +13,7 @@ $colors:(search-bg: rgb(45, 45, 45),
 }
 
 @mixin medium() {
-    @media only screen and (min-width: 1000px) and (max-width: 1299px){
+    @media only screen and (min-width: 1000px) and (max-width: 1299px) {
         @content;
     }
 }
@@ -37,6 +37,7 @@ body {
 
     main {
         width: 100%;
+        min-height: 85vh;
         color: white;
         text-align: center;
         letter-spacing: 0.1rem;
@@ -73,7 +74,8 @@ body {
 
         .searchResult {
             color: black;
-            .warn{
+
+            .warn {
                 color: red;
                 font-weight: 700;
             }
@@ -89,7 +91,7 @@ body {
             grid-row-gap: 3rem;
             width: 100%;
 
-            
+
 
             .songDisplayBox {
                 width: 100%;
@@ -132,20 +134,22 @@ body {
                 border: 3px setColor(search-btn) solid;
                 padding: 17px;
             }
-            
-            
+
+
         }
-        .button-box{
+
+        .button-box {
             margin-top: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 120px;
             max-width: 900px;
             margin-right: auto;
             margin-left: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            .btnContainer{
-                .pagButton{
+
+            .btnContainer {
+                .pagButton {
                     background-color: setColor(search-btn);
                     border-radius: 10px;
                     padding: 5px 15px;
@@ -154,14 +158,15 @@ body {
                 }
             }
         }
-        
-        
+
+
 
         @include desktop {
             .output {
                 grid-template-columns: auto auto auto;
             }
         }
+
         @include medium {
             .output {
                 grid-template-columns: auto auto;
@@ -170,6 +175,7 @@ body {
     }
 
     footer {
+        margin-top:5vh;
         text-align: center;
         color: white;
         background-color: setColor(search-bg);
@@ -178,15 +184,21 @@ body {
         align-items: center;
         justify-content: center;
         width: 100%;
-        .footer-text{
+        // position: absolute;
+        // left: 0;
+        // bottom: 0;
+
+        .footer-text {
             padding: 10px;
         }
+
         .line {
             width: 30px;
             height: 0px;
             border: 1px white solid;
             background-color: white;
         }
+
         // .lin{
         //     width: 30px;
         // }

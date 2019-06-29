@@ -27,6 +27,7 @@ body header {
 
 body main {
   width: 100%;
+  min-height: 85vh;
   color: white;
   text-align: center;
   letter-spacing: 0.1rem;
@@ -139,7 +140,7 @@ body main .output .songDisplayBox:hover {
 
 body main .button-box {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 120px;
   max-width: 900px;
   margin-right: auto;
   margin-left: auto;
@@ -177,6 +178,7 @@ body main .button-box .btnContainer .pagButton {
 }
 
 body footer {
+  margin-top: 5vh;
   text-align: center;
   color: white;
   background-color: #2d2d2d;
