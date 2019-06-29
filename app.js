@@ -39,7 +39,7 @@ let lastPage;
 
 
         function searchForResults(searchString, page = 0) {
-            fetch(`https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`)
+            fetch(`https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`,{method: 'GET'})
                 .then((data) => {
                     return data.json()
                 })
