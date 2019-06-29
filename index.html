@@ -21,55 +21,22 @@
                 id="searchButton">serach</button>
             <p>Search by song title, author, song number, lyrics, catalog or copyright owner</p>
         </div>
-        
-            <div id="searchResult" class="searchResult"></div>
-            <div id="output" class="output">
-        
 
-        </div>
+        <div id="searchResult" class="searchResult"></div>
+        <div id="output" class="output"></div>
+        <div id="button-box" class="button-box"></div>
     </main>
     <footer>
-        <div class="footer-flex-container">
-            <hr class="line">Powered by PGS
-            <hr class="line">
-        </div>
-    </footer>
-    <script>
         
-        const getSongInfo = document.getElementById("searchButton");
-
-        getSongInfo.addEventListener('click', () => {
-            let searchString = document.getElementById("searchSongTextInput").value;
-            console.log(searchString);
-            
-            fetch(`https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`)
-                .then((data) => {
-                    return data.json()
-                })
-                .then((ret) => {
-                    console.log(ret)
-                    let searchResult = `<h4>Found ${ret.resultCount} songs</h4>`;
-                    let output = ``;
-                    let i=1;
-                    ret.results.forEach(ret => {
-                        
-                        output += `
-                        <div class="songDisplayBox">   
-                            <div class="imgBox">
-                                <img src="${ret.artworkUrl100}" alt="" class="songIMG">
-                            </div> 
-                            <div class="songDescription">
-                                    <p class="songName"> ${ret.collectionName} <p>
-                                    <p class="artist"> By ${ret.artistName} <p>
-                            </div>
-                        </div>
-                        `
-                        i++;
-                    })
-                    document.getElementById("searchResult").innerHTML = searchResult;
-                    document.getElementById("output").innerHTML = output;
-                })
-        })
+            <div class="line"></div>
+            <!-- <hr class="lin"> -->
+            <p class="footer-text">Powered by PGS</p>
+            <!-- <hr class="lin"> -->
+            <div class="line"></div>
+        
+    </footer>
+    <script src="app.js">
+        
     </script>
 </body>
 

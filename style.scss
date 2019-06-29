@@ -2,7 +2,7 @@ $colors:(search-bg: rgb(45, 45, 45),
     search-btn: #f7941d,
 );
 
-@function getColor($col-name) {
+@function setColor($col-name) {
     @return map-get($colors, $col-name);
 }
 
@@ -13,7 +13,7 @@ $colors:(search-bg: rgb(45, 45, 45),
 }
 
 @mixin medium() {
-    @media only screen and (min-width: 800px, max-width 1299px) {
+    @media only screen and (min-width: 1000px) and (max-width: 1299px){
         @content;
     }
 }
@@ -42,7 +42,7 @@ body {
         letter-spacing: 0.1rem;
 
         .search-bar-wrapper {
-            background-color: getColor(search-bg);
+            background-color: setColor(search-bg);
 
             h3 {
                 padding-top: 30px;
@@ -58,7 +58,7 @@ body {
             button {
                 padding: 10px;
                 border-radius: 0 15px 15px 0;
-                background-color: getColor(search-btn);
+                background-color: setColor(search-btn);
                 color: white;
                 border: none;
             }
@@ -71,11 +71,12 @@ body {
 
         }
 
-
-
-
         .searchResult {
             color: black;
+            .warn{
+                color: red;
+                font-weight: 700;
+            }
         }
 
         .output {
@@ -88,14 +89,14 @@ body {
             grid-row-gap: 3rem;
             width: 100%;
 
-
+            
 
             .songDisplayBox {
                 width: 100%;
                 color: black;
                 display: flex;
                 height: contain;
-                padding: 17px;
+                padding: 20px;
 
                 .imgBox {
                     width: 33.3%;
@@ -128,9 +129,33 @@ body {
             }
 
             .songDisplayBox:hover {
-                border: 3px getColor(search-btn) solid;
+                border: 3px setColor(search-btn) solid;
+                padding: 17px;
+            }
+            
+            
+        }
+        .button-box{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin-right: auto;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btnContainer{
+                .pagButton{
+                    background-color: setColor(search-btn);
+                    border-radius: 10px;
+                    padding: 5px 15px;
+                    color: white;
+                    border: none;
+                }
             }
         }
+        
+        
 
         @include desktop {
             .output {
@@ -139,7 +164,7 @@ body {
         }
         @include medium {
             .output {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: auto auto;
             }
         }
     }
@@ -147,16 +172,24 @@ body {
     footer {
         text-align: center;
         color: white;
-        background-color: getColor(search-bg);
+        background-color: setColor(search-bg);
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         width: 100%;
-
+        .footer-text{
+            padding: 10px;
+        }
         .line {
             width: 30px;
+            height: 0px;
+            border: 1px white solid;
+            background-color: white;
         }
+        // .lin{
+        //     width: 30px;
+        // }
 
         @include desktop {}
     }
