@@ -37,9 +37,9 @@ let lastPage;
         }
 
 
-
+        // Aby ominąć problem z CORS po stronie klienta wykorzystałem "CORS Anywhere" https://github.com/Rob--W/cors-anywhere/blob/master/README.md
         function searchForResults(searchString, page = 0) {
-            fetch(`https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`,{method: 'GET',credentials: 'omit',mode: 'cors',headers:{ 'Content-Type': 'application/json'} })
+            fetch(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`) // prefix https://cors-anywhere.herokuapp.com/ pozwala na skorzystanie z proxy
                 .then((data) => {
                     return data.json()
                 })
