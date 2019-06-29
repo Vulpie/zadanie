@@ -118,14 +118,16 @@ body {
                 .songDescription {
                     box-sizing: border-box;
                     margin-left: 20px;
-                    height: fit-content;
-                    width: fit-content;
+                    height: 140px;
+                    width: 66.7%;
                     align-items: center;
                     text-align: center;
                     font-size: 0.8rem;
 
                     .songName {
                         font-weight: bold;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
             }
@@ -133,6 +135,12 @@ body {
             .songDisplayBox:hover {
                 border: 3px setColor(search-btn) solid;
                 padding: 17px;
+                .songDescription {
+                    .songName {
+                        overflow: visible;
+                        text-overflow: ellipsis;
+                    }
+                }
             }
 
 
@@ -175,7 +183,7 @@ body {
     }
 
     footer {
-        margin-top:5vh;
+        margin-top: 5vh;
         text-align: center;
         color: white;
         background-color: setColor(search-bg);
