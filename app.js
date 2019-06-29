@@ -1,8 +1,10 @@
 let currentPage = 0;
-
+let lastPage;
         let last_search = '';
         const getSongInfo = document.getElementById("searchButton");
+
         getSongInfo.addEventListener('click', () => {
+            resetPageNumber();
             let searchString = document.getElementById("searchSongTextInput").value;
             last_search = searchString;
             console.log(searchString);
@@ -23,7 +25,8 @@ let currentPage = 0;
 
 
         function nextPage() {
-            if(currentPage != 22){
+            
+            if(currentPage != lastPage){
             currentPage++;
             searchForResults(last_search, currentPage);
             }else{
@@ -48,9 +51,13 @@ let currentPage = 0;
                         document.getElementById("button-box").innerHTML= '';
                         return
                     }
-                    console.log(ret)
+                    
+
                     let pag = [0, 8];
                     let searchResult = `<h4>Found ${ret.resultCount} songs</h4>`;
+                    lastPage = Math.round(ret.resultCount/9);
+                    console.log(`Last page: ${lastPage}`);
+                    console.log(`Page number:${page} `)
                     let output = ``;
                     let i = 0;
                     ret.results.forEach(ret => {
@@ -87,4 +94,8 @@ let currentPage = 0;
                     document.getElementById("output").innerHTML = output;
                 })
 
+        }
+
+        function resetPageNumber(){
+            currentPage = 0;
         }
