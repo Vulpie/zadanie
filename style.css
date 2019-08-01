@@ -31,10 +31,12 @@ body main {
   color: white;
   text-align: center;
   letter-spacing: 0.1rem;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 body main .search-bar-wrapper {
-  background-color: #2d2d2d;
+  background-color: #1f2e57;
 }
 
 body main .search-bar-wrapper h3 {
@@ -51,7 +53,7 @@ body main .search-bar-wrapper input {
 body main .search-bar-wrapper button {
   padding: 10px;
   border-radius: 0 15px 15px 0;
-  background-color: #f7941d;
+  background-color: #3e8dbb;
   color: white;
   border: none;
 }
@@ -94,7 +96,7 @@ body main .output .songDisplayBox {
 }
 
 body main .output .songDisplayBox .imgBox {
-  width: 33.3%;
+  width: contain;
   height: contain;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,7 +134,7 @@ body main .output .songDisplayBox .songDescription .songName {
 }
 
 body main .output .songDisplayBox:hover {
-  border: 3px #f7941d solid;
+  border: 3px #3e8dbb solid;
   padding: 17px;
 }
 
@@ -159,7 +161,7 @@ body main .button-box {
 }
 
 body main .button-box .btnContainer .pagButton {
-  background-color: #f7941d;
+  background-color: #3e8dbb;
   border-radius: 10px;
   padding: 5px 15px;
   color: white;
@@ -184,7 +186,7 @@ body footer {
   margin-top: 5vh;
   text-align: center;
   color: white;
-  background-color: #2d2d2d;
+  background-color: #1f2e57;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,6 +205,11 @@ body footer {
 
 body footer .footer-text {
   padding: 10px;
+}
+
+body footer .footer-text a {
+  text-decoration: none;
+  color: #3e8dbb;
 }
 
 body footer .line {

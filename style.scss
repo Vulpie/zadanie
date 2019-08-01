@@ -1,5 +1,5 @@
-$colors:(search-bg: rgb(45, 45, 45),
-    search-btn: #f7941d,
+$colors:(search-bg: rgb(31, 46, 87),
+    search-btn: #3e8dbb,
 );
 
 @function setColor($col-name) {
@@ -41,7 +41,8 @@ body {
         color: white;
         text-align: center;
         letter-spacing: 0.1rem;
-
+        padding-top: 0;
+        margin-top: 0;
         .search-bar-wrapper {
             background-color: setColor(search-bg);
 
@@ -99,9 +100,10 @@ body {
                 display: flex;
                 height: contain;
                 padding: 20px;
+                
 
                 .imgBox {
-                    width: 33.3%;
+                    width: contain;
                     height: contain;
                     display: flex;
 
@@ -198,6 +200,10 @@ body {
 
         .footer-text {
             padding: 10px;
+            a{
+                text-decoration: none;
+                color: setColor(search-btn);
+            }
         }
 
         .line {
