@@ -92,11 +92,12 @@ body main .output .songDisplayBox {
   display: -ms-flexbox;
   display: flex;
   height: contain;
-  padding: 20px;
+  padding: 10px;
 }
 
 body main .output .songDisplayBox .imgBox {
   width: contain;
+  max-width: 50%;
   height: contain;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,11 +116,8 @@ body main .output .songDisplayBox .imgBox .songIMG {
 }
 
 body main .output .songDisplayBox .songDescription {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-left: 20px;
+  margin-left: 5px;
   height: 140px;
-  width: 66.7%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -135,7 +133,7 @@ body main .output .songDisplayBox .songDescription .songName {
 
 body main .output .songDisplayBox:hover {
   border: 3px #3e8dbb solid;
-  padding: 17px;
+  padding: 7px;
 }
 
 body main .output .songDisplayBox:hover .songDescription .songName {
@@ -170,15 +168,15 @@ body main .button-box .btnContainer .pagButton {
 
 @media only screen and (min-width: 1300px) {
   body main .output {
-    -ms-grid-columns: auto auto auto;
-        grid-template-columns: auto auto auto;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
   }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1299px) {
   body main .output {
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
   }
 }
 

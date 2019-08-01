@@ -88,6 +88,7 @@ body {
             margin-left: auto;
             display: grid;
             grid-template-columns: 1fr;
+            
             grid-column-gap: 25px;
             grid-row-gap: 3rem;
             width: 100%;
@@ -99,11 +100,12 @@ body {
                 color: black;
                 display: flex;
                 height: contain;
-                padding: 20px;
+                padding: 10px;
                 
 
                 .imgBox {
                     width: contain;
+                    max-width: 50%;
                     height: contain;
                     display: flex;
 
@@ -118,10 +120,10 @@ body {
 
 
                 .songDescription {
-                    box-sizing: border-box;
-                    margin-left: 20px;
+                    //box-sizing: border-box;
+                    margin-left: 5px;
                     height: 140px;
-                    width: 66.7%;
+                    //width: fit-content;
                     align-items: center;
                     text-align: center;
                     font-size: 0.8rem;
@@ -136,7 +138,7 @@ body {
 
             .songDisplayBox:hover {
                 border: 3px setColor(search-btn) solid;
-                padding: 17px;
+                padding: 7px;
                 .songDescription {
                     .songName {
                         overflow: visible;
@@ -173,13 +175,13 @@ body {
 
         @include desktop {
             .output {
-                grid-template-columns: auto auto auto;
+                grid-template-columns: 50% 50%;
             }
         }
 
         @include medium {
             .output {
-                grid-template-columns: auto auto;
+                grid-template-columns: 50% 50%;
             }
         }
     }
