@@ -35,6 +35,71 @@ body main {
   margin-top: 0;
 }
 
+body main .info-display {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: #d4e6f1;
+  color: black;
+}
+
+body main .info-display .songDisplayBox {
+  width: 100%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+body main .info-display .songDisplayBox .imgBox {
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .info-display .songDisplayBox .imgBox .songIMG {
+  width: 200px;
+  height: auto;
+  border: 3px solid black;
+}
+
+body main .info-display .songDisplayBox .songDescription {
+  height: 100%;
+  width: 70%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+body main .info-display .songDisplayBox .songDescription .songName {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body main .info-display .songDisplayBox .songDescription .closeButton {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #3e8dbb;
+  color: white;
+  border: none;
+}
+
 body main .search-bar-wrapper {
   background-color: #1f2e57;
 }
@@ -131,6 +196,14 @@ body main .output .songDisplayBox .songDescription .songName {
   text-overflow: ellipsis;
 }
 
+body main .output .songDisplayBox .songDescription .infoButton {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #3e8dbb;
+  color: white;
+  border: none;
+}
+
 body main .output .songDisplayBox:hover {
   border: 3px #3e8dbb solid;
   padding: 7px;
@@ -168,8 +241,8 @@ body main .button-box .btnContainer .pagButton {
 
 @media only screen and (min-width: 1300px) {
   body main .output {
-    -ms-grid-columns: 50% 50%;
-        grid-template-columns: 50% 50%;
+    -ms-grid-columns: 33.3% 33.3% 33.3%;
+        grid-template-columns: 33.3% 33.3% 33.3%;
   }
 }
 
