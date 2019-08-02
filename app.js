@@ -1,6 +1,7 @@
 let currentPage = 0;
 let lastPage;
 let item_id_glob = 0;
+let button_id_glob = 0;
 let search_items_list = [];
 let last_search = '';
 const getSongInfo = document.getElementById("searchButton");
@@ -79,8 +80,11 @@ function searchForResults(searchString, page = 0) {
                 item.img_url = ret.artworkUrl100;
                 item.songName = ret.collectionName;
                 item.arrtistName = ret.artistName;
-                item.rating = ret.ratingIndex;
-                item.preview = ret.previewUrl;
+                
+
+                item.price = ret.collectionPrice;
+                item.currency = ret.currency;
+                item.genre=ret.primaryGenreName;
                 console.log(ret);
                 item_id_glob++;
                 if (item_id_glob == 200) {
@@ -98,11 +102,14 @@ function searchForResults(searchString, page = 0) {
                             <div class="songDescription">
                                     <p class="songName"> ${ret.collectionName} <p>
                                     <p class="artist"> By ${ret.artistName} <p>
-                                    <button class="infoButton" onclick="getMoreInfo()"> More </button>
+                                    <button id="${button_id_glob}" class="infoButton" onclick="getMoreInfo(this.id)"> More </button>
                             </div>
                         </div>
                         `
-
+                        button_id_glob++;
+                        if (button_id_glob == 200) {
+                            button_id_glob = 0;
+                        }
                 search_items_list.push(item);
                 i++;
 
@@ -127,29 +134,29 @@ function resetPageNumber() {
 }
 
 
-function getMoreInfo() {
+function getMoreInfo(btn_id) {
+    
     document.getElementById("info-display").style.display = "block";
     document.getElementById("info-display").innerHTML = `       
     <div class="songDisplayBox">   
         <div class="imgBox">
-            <img src="${search_items_list[1].img_url}" alt="" class="songIMG">
+            <img src="${search_items_list[btn_id].img_url}" alt="" class="songIMG">
         </div> 
         <div class="songDescription">
-                <p class="songName"> ${search_items_list[1].songName} <p>
-                <p class="artist"> By ${search_items_list[1].arrtistName} <p>
+                <p class="songName"> ${search_items_list[btn_id].songName} <p>
+                <p class="artist"> By ${search_items_list[btn_id].arrtistName} <p>
+
+                <p class="artist">  ${search_items_list[btn_id].genre} <p>
+                <p class="artist">  ${search_items_list[btn_id].price} ${search_items_list[btn_id].currency}<p>
                 
-                <audio controls>
-                    <source src="${search_items_list[1].preview}" type="audio/m4a">
-                    
-                    Your browser does not support the audio element.
-                </audio>
+                
                 <button class="closeButton" onclick="closeInfoDisplay()"> Close </button>
                 
         </div>
         <div class="clear"></div>
     </div>
     `
-//<p class="preview">${search_items_list[1].preview}</p>
+
 }
 
 
