@@ -1,0 +1,1 @@
+This is a simple JavaScript app using iTunes API to get information about songs.

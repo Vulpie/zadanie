@@ -1,0 +1,24 @@
+{
+  "name": "itunesapp",
+  "version": "1.1.0",
+  "description": "Simple appfor iTunes music search",
+  "main": "app.js",
+  "dependencies": {
+    "jsdoc": "^3.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vulpie/zadanie.git"
+  },
+  "author": "Wojtaś Filip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vulpie/zadanie/issues"
+  },
+  "homepage": "https://github.com/Vulpie/zadanie#readme"
+}
