@@ -146,16 +146,16 @@ async function searchForResults(searchString, page = 0){
                         {
                             output += `
                                         
-                                <div class="main__wrapper-output-songDisplayBox">   
-                                        
-                                    <div class="main__wrapper-output-songDisplayBox-imgBox">
-                                        <img src="${ret.artworkUrl100}" alt="" class="main__wrapper-output-songDisplayBox-imgBox-img">
-                                    </div> 
-                                    <div class="main__wrapper-output-songDisplayBox-songDescription">
-                                            <p class="main__wrapper-output-songDisplayBox-songDescription-name"> ${ret.collectionName} <p>
-                                            <p class="artist"> By ${ret.artistName} <p>
-                                            <button id="${appState.button_id_glob}" class="main__wrapper-output-songDisplayBox-songDescription-btn" onclick="getMoreInfo(this.id)"> More </button>
-                                    </div>
+                                <div class="main__wrapper-output-display-song">   
+                                        <img src="${ret.artworkUrl100}" alt="" class="main__wrapper-output-display-song-img">
+                                    
+                                            <p class="main__wrapper-output-display-song-name"> ${ret.collectionName} <p>
+                                            <button id="${appState.button_id_glob}" class="main__wrapper-output-display-song-btn" onclick="getMoreInfo(this.id)"> 
+                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
+                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
+                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
+                                            </button>
+                                    
                                 </div>
                                 `
                         }
