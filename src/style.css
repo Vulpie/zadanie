@@ -5,6 +5,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow-x: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -14,50 +15,24 @@ body {
           align-items: center;
 }
 
-body header {
+body .main {
   width: 100%;
-  max-height: 70px;
-}
-
-@media only screen and (min-width: 1300px) {
-  body header {
-    max-width: 900px;
-  }
-}
-
-body main {
-  width: 100%;
-  min-height: 85vh;
+  min-height: 100vh;
   color: white;
   text-align: center;
   letter-spacing: 0.1rem;
   padding-top: 0;
   margin-top: 0;
-}
-
-body main .info-display {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-  background-color: #d4e6f1;
-  color: black;
-}
-
-body main .info-display .songDisplayBox {
-  width: 100%;
-  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-body main .info-display .songDisplayBox .imgBox {
-  height: 100%;
-  width: 40%;
+body .main__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,156 +40,91 @@ body main .info-display .songDisplayBox .imgBox {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-body main .info-display .songDisplayBox .imgBox .songIMG {
-  width: 200px;
-  height: auto;
-  border: 3px solid black;
-}
-
-body main .info-display .songDisplayBox .songDescription {
-  height: 100%;
-  width: 70%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  font-size: 0.8rem;
+  width: 80%;
 }
 
-body main .info-display .songDisplayBox .songDescription .songName {
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-body main .info-display .songDisplayBox .songDescription .closeButton {
-  padding: 10px;
-  border-radius: 15px;
-  background-color: #3e8dbb;
-  color: white;
-  border: none;
-}
-
-body main .search-bar-wrapper {
-  background-color: #1f2e57;
-}
-
-body main .search-bar-wrapper h3 {
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
-
-body main .search-bar-wrapper input {
-  padding: 10px 10px;
-  border-radius: 15px 0 0 15px;
-  border: none;
-}
-
-body main .search-bar-wrapper button {
-  padding: 10px;
-  border-radius: 0 15px 15px 0;
-  background-color: #3e8dbb;
-  color: white;
-  border: none;
-}
-
-body main .search-bar-wrapper p {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-body main .searchResult {
+body .main__wrapper-searchResult {
   color: black;
+  width: 100%;
 }
 
-body main .searchResult .warn {
+body .main__wrapper-searchResult .warn {
   color: red;
   font-weight: 700;
 }
 
-body main .output {
-  max-width: 900px;
+body .main__wrapper-output {
   margin-right: auto;
   margin-left: auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  grid-column-gap: 25px;
-  grid-row-gap: 3rem;
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 40%;
 }
 
-body main .output .songDisplayBox {
+body .main__wrapper-output-display-song {
+  margin: 10px 0;
+  border: 2px solid black;
   width: 100%;
   color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: contain;
-  padding: 10px;
-}
-
-body main .output .songDisplayBox .imgBox {
-  width: contain;
-  max-width: 50%;
-  height: contain;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-body main .output .songDisplayBox .imgBox .songIMG {
-  width: 100px;
-  height: 100px;
-  border: 3px solid black;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
-}
-
-body main .output .songDisplayBox .songDescription {
-  margin-left: 5px;
-  height: 140px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
-  font-size: 0.8rem;
 }
 
-body main .output .songDisplayBox .songDescription .songName {
-  font-weight: bold;
+body .main__wrapper-output-display-song-img {
+  margin-left: 5px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+body .main__wrapper-output-display-song-name {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-body main .output .songDisplayBox .songDescription .infoButton {
-  padding: 10px;
-  border-radius: 15px;
-  background-color: #3e8dbb;
+body .main__wrapper-output-display-song-btn {
+  margin-right: 5px;
   color: white;
+  background-color: white;
   border: none;
 }
 
-body main .output .songDisplayBox:hover {
-  border: 3px #3e8dbb solid;
-  padding: 7px;
+body .main__wrapper-output-display-song-btn-hr {
+  border: 2px black solid;
+  margin: 3px 0;
+  width: 30px;
 }
 
-body main .output .songDisplayBox:hover .songDescription .songName {
-  overflow: visible;
-  text-overflow: ellipsis;
+body .main__wrapper-output-display-song-btn:hover {
+  background-color: #d4e6f1;
+  cursor: pointer;
 }
 
-body main .button-box {
+body .main__wrapper-output-display-song:hover {
+  border: 2px #3e8dbb solid;
+  background-color: #d4e6f1;
+}
+
+body .main__wrapper-output-display-song:hover-btn:hover {
+  background-color: #d4e6f1;
+}
+
+body .main__wrapper-button-box {
   margin-top: 30px;
   margin-bottom: 120px;
   max-width: 900px;
@@ -231,7 +141,7 @@ body main .button-box {
           justify-content: center;
 }
 
-body main .button-box .btnContainer .pagButton {
+body .main__wrapper-button-box-pagination {
   background-color: #3e8dbb;
   border-radius: 10px;
   padding: 5px 15px;
@@ -240,53 +150,122 @@ body main .button-box .btnContainer .pagButton {
 }
 
 @media only screen and (min-width: 1300px) {
-  body main .output {
+  body .main__wrapper .output {
     -ms-grid-columns: 33.3% 33.3% 33.3%;
         grid-template-columns: 33.3% 33.3% 33.3%;
   }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1299px) {
-  body main .output {
+  body .main__wrapper .output {
     -ms-grid-columns: 50% 50%;
         grid-template-columns: 50% 50%;
   }
 }
 
-body footer {
-  margin-top: 5vh;
-  text-align: center;
-  color: white;
+body .main__menu {
   background-color: #1f2e57;
+  width: 20%;
+  min-width: 300px;
+}
+
+body .main__menu-title {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+body .main__menu-input {
+  padding: 10px 10px;
+  border-radius: 15px 0 0 15px;
+  border: none;
+}
+
+body .main__menu-button {
+  padding: 10px;
+  border-radius: 0 15px 15px 0;
+  background-color: #3e8dbb;
+  color: white;
+  border: none;
+}
+
+body .main__menu-button:hover {
+  background-color: #1b6088;
+}
+
+body .main__menu-p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body .main__menu-display {
+  margin-top: 20px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #d4e6f1;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .main__menu-display-box {
+  width: 33%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+body .main__menu-display-box-imgBox {
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .main__menu-display-box-imgBox-img {
+  width: 200px;
+  height: auto;
+  border: 3px solid black;
+}
+
+body .main__menu-display-box-desc {
+  height: 100%;
+  width: 70%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
 }
 
-body footer .footer-text {
+body .main__menu-display-box-desc-name {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body .main__menu-display-box-desc-btn {
   padding: 10px;
-}
-
-body footer .footer-text a {
-  text-decoration: none;
-  color: #3e8dbb;
-}
-
-body footer .line {
-  width: 30px;
-  height: 0px;
-  border: 1px white solid;
-  background-color: white;
+  border-radius: 15px;
+  background-color: #3e8dbb;
+  color: white;
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */
