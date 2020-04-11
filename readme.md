@@ -1,7 +1,7 @@
 
 # iTunes API application
 
-This is a simple JavaScript app using iTunes API to get information about songs
+This is a simple JavaScript app using iTunes API to 
 
 ---
 
@@ -10,5 +10,3 @@ This is a simple JavaScript app using iTunes API to get information about songs
 * HTML
 * JavaScript
 * CSS / Scss
-
-
