@@ -6,11 +6,18 @@
   "dependencies": {
     "jsdoc": "^3.6.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc -c jsdoc.json",
-    "out": "jsdoc src/app.js"
+    "out": "jsdoc src/app.js",
+    "build": "webpack --mode production",
+    "webpack-dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
