@@ -13,7 +13,7 @@ class State {
         /**
          * @property {number} currentPage - The page that is currently viewed
          * @property {number} lastPage - Last available page for search results
-         * @property {number} item_id_glob - Global ID for every item form the latest search result
+         * @property {number} item_id_glob - Global ID for every item for the latest search result
          * @property {number} button_id_glob - Global ID for every button
          * @property {Array<Object>} search_items_list - Array of objects received from iTunes
          * @property {string} last_search - The latest search phrase
@@ -47,7 +47,6 @@ const appState = new State()
 const getSongInfo = document.getElementById('searchButton')
 
 getSongInfo.addEventListener('click', () => {
-
     appState.search_items_list.length = 0
     appState.resetPageNumber()
     let searchString = document.getElementById('searchSongTextInput').value
@@ -87,24 +86,23 @@ const nextPage = () => {
 }
 
 /**
- * @property {Function} searchForResults - The function sending and receiving data from iTunes
+ * @property {Function} searchForResults - Sending and receiving data from iTunes
  * @param {string} searchString - See {@link last_search}
  * @param {number} page
  * @property {string} corsURL - URLproxy to avoid CORS problem on github pages. See link below (CORS REDME)
  * @see <a href="https://github.com/Rob--W/cors-anywhere/blob/master/README.md">CORS README</a>
- * @property {string} iTunesURL - iTunes api url. Contains searchString, entity type (song) and limits of result (200)
+ * @property {string} iTunesURL - iTunes api url. Contains searchString, entity type (song) and limits (200)
  * @property {string} url - Full url
  * @async
  * @return void
  */
-async function searchForResults(searchString, page = 0){
-    
+async function searchForResults(searchString, page = 0) {
     const corsURL = 'https://cors-anywhere.herokuapp.com/'
     const iTunesURL = `https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`
     const url = corsURL + iTunesURL
 
     const data = await fetch(url)
-    await data.json().then((res)=> {
+    await data.json().then((res) => {
         if (res.resultCount === 0) {
             document.getElementById(
                 'searchResult'
@@ -120,31 +118,30 @@ async function searchForResults(searchString, page = 0){
         let output = ``
         let i = 0
 
-        res.results.forEach(ret => {
-                    const item = {
-                        item_id: '',
-                        img_url: '',
-                        songName: '',
-                        arrtistName: '',
-                        rating: ''
-                    }
-                    item.item_id = appState.item_id_glob
-                    item.img_url = ret.artworkUrl100
-                    item.songName = ret.collectionName
-                    item.arrtistName = ret.artistName
+        res.results.forEach((ret) => {
+            const item = {
+                item_id: '',
+                img_url: '',
+                songName: '',
+                arrtistName: '',
+                rating: ''
+            }
+            item.item_id = appState.item_id_glob
+            item.img_url = ret.artworkUrl100
+            item.songName = ret.collectionName
+            item.arrtistName = ret.artistName
 
-                    item.price = ret.collectionPrice
-                    item.currency = ret.currency
-                    item.genre = ret.primaryGenreName
+            item.price = ret.collectionPrice
+            item.currency = ret.currency
+            item.genre = ret.primaryGenreName
 
-                    appState.item_id_glob++
-                    if (appState.item_id_glob === 200) {
-                        appState.item_id_glob = 0
-                    }
+            appState.item_id_glob++
+            if (appState.item_id_glob === 200) {
+                appState.item_id_glob = 0
+            }
 
-                    if (i >= pag[0] + page * 9 && i <= pag[1] + page * 9)
-                        {
-                            output += `
+            if (i >= pag[0] + page * 9 && i <= pag[1] + page * 9) {
+                output += `
                                         
                                 <div class="main__wrapper-output-display-song">   
                                         <img src="${ret.artworkUrl100}" alt="" class="main__wrapper-output-display-song-img">
@@ -158,14 +155,14 @@ async function searchForResults(searchString, page = 0){
                                     
                                 </div>
                                 `
-                        }
-                    appState.button_id_glob++
-                    if (appState.button_id_glob == 200) {
-                        appState.button_id_glob = 0
-                    }
-                    appState.search_items_list.push(item)
-                    i++
-                })
+            }
+            appState.button_id_glob++
+            if (appState.button_id_glob == 200) {
+                appState.button_id_glob = 0
+            }
+            appState.search_items_list.push(item)
+            i++
+        })
         let buttons = `
                     <button class="main__wrapper-button-box-pagination" onclick="prevPage()">	&lt;	&lt; prev</button>
                     <button class="main__wrapper-button-box-pagination" onclick="nextPage()"> next 	&gt;	&gt;</button>
@@ -175,16 +172,14 @@ async function searchForResults(searchString, page = 0){
         document.getElementById('searchResult').innerHTML = searchResult
         document.getElementById('output').innerHTML = output
     })
-    
 }
-
 
 /**
  * @property {Function} getMoreInfo - The button opens up an output window over the displayed results
  * @param {number} btn_id - ID of the clicked button.
  * @return void
  */
-const getMoreInfo = btn_id => {
+const getMoreInfo = (btn_id) => {
     document.getElementById('info-display').style.display = 'block'
     document.getElementById('info-display').innerHTML = `       
     <div class="main__wrapper-display-box">   
