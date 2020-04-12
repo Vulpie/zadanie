@@ -23,7 +23,7 @@ export function createPaginationButtons() {
     parent.appendChild(buttonBox)
 }
 
-export function createOutput(artworkUrl100, collectionName, button_id_glob) {
+export function createOutput(artworkUrl100, collectionName) {
     let mainWrapper = null
     let artIMG = null
     let songNameParagraph = null
@@ -43,7 +43,7 @@ export function createOutput(artworkUrl100, collectionName, button_id_glob) {
 
     viewMoreButton = document.createElement('button')
     viewMoreButton.classList.add('main__wrapper-output-display-song-btn')
-    //viewMoreButton.onclick = getMoreInfo(button_id_glob)
+    //viewMoreButton.onclick = getMoreInfo()
     viewMoreButton.innerHTML = '&#9776;'
 
     mainWrapper.appendChild(artIMG)
@@ -74,3 +74,17 @@ export function createSearchSummaryDisplay(resultCount) {
 
     parent.appendChild(searchSummaryDisplay)
 }
+
+// export function displayMoreInfo(img_url,){
+//     let parent = document.getElementById('main__menu')
+//     let wrapper = null
+//     let imgBox = null
+//     let img = null
+
+//     let descriptionWrapper=null
+//     let nameParagraph = null
+//     let artistParagraph = null
+//     let genreParagraph = null
+//     let priceParagraph = null
+
+// }
