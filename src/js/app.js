@@ -77,11 +77,11 @@ const nextPage = () => {
  */
 async function searchForResults(searchString, page = 0) {
     console.log('test 2')
-    const corsURL = 'https://cors-anywhere.herokuapp.com/'
+    //const corsURL = 'https://cors-anywhere.herokuapp.com/'
     const iTunesURL = `https://itunes.apple.com/search?term=${searchString}&entity=song&limit=200`
-    const url = corsURL + iTunesURL
+    //const url = corsURL + iTunesURL
 
-    const data = await fetch(url)
+    const data = await fetch(iTunesURL)
     await data.json().then((res) => {
         createSearchSummaryDisplay(res.resultCount)
 

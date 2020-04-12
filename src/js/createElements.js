@@ -54,10 +54,11 @@ export function createOutput(artworkUrl100, collectionName, button_id_glob) {
 }
 
 export function createSearchSummaryDisplay(resultCount) {
+    let parent = document.getElementById('main__wrapper')
     let searchSummaryDisplay = null
     let paragraph = null
 
-    searchSummaryDisplay = document.getElementById('div')
+    searchSummaryDisplay = document.createElement('div')
     searchSummaryDisplay.classList.add('main__wrapper-searchResult')
 
     paragraph = document.createElement('p')
@@ -66,6 +67,10 @@ export function createSearchSummaryDisplay(resultCount) {
     if (resultCount === 0) {
         paragraph.innerHTML = 'Sorry, no matches found'
     } else {
-        paragrapg.innerHTML = `<h4>Found ${resultCount} songs</h4>`
+        paragraph.innerHTML = `<h4>Found ${resultCount} songs</h4>`
     }
+
+    searchSummaryDisplay.appendChild(paragraph)
+
+    parent.appendChild(searchSummaryDisplay)
 }
