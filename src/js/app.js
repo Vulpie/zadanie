@@ -5,6 +5,12 @@
  */
 
 import { searchForResults } from './search'
+import {
+    createPaginationButtons,
+    createSearchSummaryDisplay,
+    createButtonPrevPage,
+    createButtonNextPage
+} from './createElements'
 
 /**
  * Anchor element for search button
@@ -20,20 +26,33 @@ getSongInfo.addEventListener('click', () => {
         offset = 0
         searchPhrase = searchString
     }
-    searchForResults(searchString)
+    let iTunesResponseCount = searchForResults(searchString, offset)
+
+    if (iTunesResponseCount !== 0) {
+        createPaginationButtons()
+        if (offset === 0) {
+            createButtonNextPage()
+        } else if (offset !== 0 && iTunesResponseCount === 0) {
+            createButtonPrevPage()
+        } else {
+            createButtonNextPage()
+            createButtonPrevPage()
+        }
+    }
+
+    createSearchSummaryDisplay(offset, iTunesResponseCount)
 })
 
-export function nextPage() {
-    offset += 9
-    searchForResults(searchPhrase, offset)
+/**
+ * @property {Function} closeInfoDisplay - The function closing the display with additional informations about the song
+ * @return void
+ */
+const closeInfoDisplay = () => {
+    document.getElementById('info-display').style.display = 'none'
+    document.getElementById('info-display').innerHTML = ''
 }
 
-export function prevPage() {
-    if (offset !== 0) {
-        offset -= 9
-        searchForResults(searchPhrase, offset)
-    }
-}
+/* ------------ */
 
 /**
  * @property {Function} getMoreInfo - The button opens up an output window over the displayed results
@@ -61,12 +80,3 @@ export function prevPage() {
 //     </div>
 //     `
 // }
-
-/**
- * @property {Function} closeInfoDisplay - The function closing the display with additional informations about the song
- * @return void
- */
-const closeInfoDisplay = () => {
-    document.getElementById('info-display').style.display = 'none'
-    document.getElementById('info-display').innerHTML = ''
-}

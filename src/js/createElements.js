@@ -1,26 +1,39 @@
+import { nextPage, prevPage } from './pagination'
+
 export function createPaginationButtons() {
-    let prevButton = null
-    let nextButton = null
     let buttonBox = null
     let parent = document.getElementById('main__wrapper')
 
     buttonBox = document.createElement('div')
     buttonBox.classList.add('main__wrapper-button-box')
 
-    prevButton = document.createElement('button')
-    prevButton.classList.add('main__wrapper-button-box-pagination')
-    prevButton.innerHTML = '&lt;	&lt; prev'
-    //prevButton.onclick = prevPage()
+    parent.appendChild(buttonBox)
+}
+
+export function createButtonNextPage(offset, searchString) {
+    let parent = document.querySelector('.main__wrapper-button-box')
+    let nextButton = null
 
     nextButton = document.createElement('button')
     nextButton.classList.add('main__wrapper-button-box-pagination')
     nextButton.innerHTML = 'next 	&gt;	&gt;'
-    //nextButton.onclick = nextPage()
+    //nextButton.addEventListener('click', nextPage(offset, searchString))
+    nextButton.onclick = nextPage(offset, searchString)
 
-    buttonBox.appendChild(prevButton)
-    buttonBox.appendChild(nextButton)
+    parent.appendChild(nextButton)
+}
 
-    parent.appendChild(buttonBox)
+export function createButtonPrevPage(offset, searchString) {
+    let parent = document.querySelector('.main__wrapper-button-box')
+    let prevButton = null
+
+    prevButton = document.createElement('button')
+    prevButton.classList.add('main__wrapper-button-box-pagination')
+    prevButton.innerHTML = 'next 	&gt;	&gt;'
+    //prevButton.addEventListener('click', prevPage(offset, searchString))
+    prevButton.onclick = prevPage(offset, searchString)
+
+    parent.appendChild(prevButton)
 }
 
 export function createOutput(artworkUrl100, collectionName) {
@@ -53,7 +66,7 @@ export function createOutput(artworkUrl100, collectionName) {
     parent.appendChild(mainWrapper)
 }
 
-export function createSearchSummaryDisplay(resultCount) {
+export function createSearchSummaryDisplay(offset, iTunesResponseCount) {
     let parent = document.getElementById('main__wrapper')
     let searchSummaryDisplay = null
     let paragraph = null
@@ -64,10 +77,10 @@ export function createSearchSummaryDisplay(resultCount) {
     paragraph = document.createElement('p')
     paragraph.classList.add('info')
 
-    if (resultCount === 0) {
+    if (iTunesResponseCount === 0) {
         paragraph.innerHTML = 'Sorry, no matches found'
     } else {
-        paragraph.innerHTML = `<h4>Found ${resultCount} songs</h4>`
+        paragraph.innerHTML = `<h4>${offset} - ${offset + 9}</h4>`
     }
 
     searchSummaryDisplay.appendChild(paragraph)

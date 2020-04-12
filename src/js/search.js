@@ -1,8 +1,4 @@
-import {
-    createOutput,
-    createPaginationButtons,
-    createSearchSummaryDisplay
-} from './createElements'
+import { createOutput } from './createElements'
 
 /**
  * @property {Function} searchForResults - Sending and receiving data from iTunes
@@ -17,18 +13,19 @@ export async function searchForResults(searchString, offset) {
     iTunesURL.searchParams.append('limit', 9)
     iTunesURL.searchParams.append('offset', offset)
 
+    let resultCount
     const data = await fetch(iTunesURL)
     await data.json().then((res) => {
-        createSearchSummaryDisplay(res.resultCount)
         if (res.resultCount === 0) {
-            return
+            return res.resultCount
         }
+        resultCount = res.resultCount
         res.results.forEach((ret) => {
             createOutput(ret.artworkUrl100, ret.collectionName)
         })
-
-        createPaginationButtons()
+        console.log(res)
     })
+    return resultCount
 }
 
 // const item = {
