@@ -68,7 +68,7 @@ body .main__wrapper-output {
 body .main__wrapper-output-display-song {
   margin: 10px 0;
   border: 2px solid black;
-  width: 100%;
+  width: 50%;
   color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,14 +101,9 @@ body .main__wrapper-output-display-song-btn {
   margin-right: 5px;
   color: white;
   background-color: white;
+  color: black;
   border: none;
   border-radius: 5px;
-}
-
-body .main__wrapper-output-display-song-btn-hr {
-  border: 2px black solid;
-  margin: 3px 0;
-  width: 30px;
 }
 
 body .main__wrapper-output-display-song-btn:hover {

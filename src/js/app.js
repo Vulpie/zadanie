@@ -6,6 +6,7 @@
 
 //import { nextPage, prevPage } from './pages'
 import State from './State'
+import { createOutput, createPaginationButtons } from './createElements'
 
 /**
  * See {@link State}
@@ -116,20 +117,25 @@ async function searchForResults(searchString, page = 0) {
             }
 
             if (i >= pag[0] + page * 9 && i <= pag[1] + page * 9) {
-                output += `
-                                        
-                                <div class="main__wrapper-output-display-song">   
-                                        <img src="${ret.artworkUrl100}" alt="" class="main__wrapper-output-display-song-img">
-                                    
-                                            <p class="main__wrapper-output-display-song-name"> ${ret.collectionName} <p>
-                                            <button id="${appState.button_id_glob}" class="main__wrapper-output-display-song-btn" onclick="getMoreInfo(this.id)"> 
-                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
-                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
-                                            <div class="main__wrapper-output-display-song-btn-hr"></div>
-                                            </button>
-                                    
-                                </div>
-                                `
+                // output += `
+
+                //                 <div class="main__wrapper-output-display-song">
+                //                         <img src="${ret.artworkUrl100}" alt="" class="main__wrapper-output-display-song-img">
+
+                //                             <p class="main__wrapper-output-display-song-name"> ${ret.collectionName} <p>
+                //                             <button id="${appState.button_id_glob}" class="main__wrapper-output-display-song-btn" onclick="getMoreInfo(this.id)">
+                //                             <div class="main__wrapper-output-display-song-btn-hr"></div>
+                //                             <div class="main__wrapper-output-display-song-btn-hr"></div>
+                //                             <div class="main__wrapper-output-display-song-btn-hr"></div>
+                //                             </button>
+
+                //                 </div>
+                //                 `
+                createOutput(
+                    ret.artworkUrl100,
+                    ret.collectionName,
+                    appState.button_id_glob
+                )
             }
             appState.button_id_glob++
             if (appState.button_id_glob == 200) {
@@ -138,14 +144,16 @@ async function searchForResults(searchString, page = 0) {
             appState.search_items_list.push(item)
             i++
         })
-        let buttons = `
-                    <button class="main__wrapper-button-box-pagination" onclick="prevPage()">	&lt;	&lt; prev</button>
-                    <button class="main__wrapper-button-box-pagination" onclick="nextPage()"> next 	&gt;	&gt;</button>
-                    `
 
-        document.getElementById('button-box').innerHTML = buttons
-        document.getElementById('searchResult').innerHTML = searchResult
-        document.getElementById('output').innerHTML = output
+        // let buttons = `
+        //             <button class="main__wrapper-button-box-pagination" onclick="prevPage()">	&lt;	&lt; prev</button>
+        //             <button class="main__wrapper-button-box-pagination" onclick="nextPage()"> next 	&gt;	&gt;</button>
+        //             `
+
+        // document.getElementById('button-box').innerHTML = buttons
+        createPaginationButtons()
+        //document.getElementById('searchResult').innerHTML = searchResult
+        //document.getElementById('output').innerHTML = output
     })
 }
 
