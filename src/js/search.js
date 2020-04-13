@@ -1,4 +1,6 @@
-import { createDisplay, createOutput } from './createElements'
+import { createItem } from './elements/item'
+
+import { createMainDisplay } from './elements/mainDisplay'
 
 /**
  * @property {Function} searchiTunes - Sending and receiving data from iTunes
@@ -7,7 +9,7 @@ import { createDisplay, createOutput } from './createElements'
  * @return void
  */
 export async function searchiTunes(searchString, offset) {
-    createDisplay()
+    createMainDisplay()
     let iTunesURL = new URL('https://itunes.apple.com/search')
     iTunesURL.searchParams.set('term', searchString)
     iTunesURL.searchParams.append('entity', 'song')
@@ -23,7 +25,7 @@ export async function searchiTunes(searchString, offset) {
 
         resultCount = res.resultCount
         res.results.forEach((ret) => {
-            createOutput(ret.artworkUrl100, ret.collectionName)
+            createItem(ret.artworkUrl100, ret.collectionName)
         })
     })
     return resultCount

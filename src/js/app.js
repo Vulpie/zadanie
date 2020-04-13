@@ -6,7 +6,7 @@
 
 import { clearDisplay, clearResultDisplay } from './clear'
 import { searchiTunes } from './search'
-import { createSearchSummaryDisplay } from './createElements'
+import { createSearchSummary } from './elements/searchSummary'
 import { setButtonsStatus } from './buttonsController'
 
 /**
@@ -41,17 +41,8 @@ const search = async (searchString) => {
     clearDisplay()
     clearResultDisplay()
     let iTunesResponseCount = await searchiTunes(searchString, offset)
-    createSearchSummaryDisplay(offset, iTunesResponseCount)
+    createSearchSummary(offset, iTunesResponseCount)
     setButtonsStatus(offset, iTunesResponseCount)
-}
-
-/**
- * @property {Function} closeInfoDisplay - The function closing the display with additional informations about the song
- * @return void
- */
-const closeInfoDisplay = () => {
-    document.getElementById('info-display').style.display = 'none'
-    document.getElementById('info-display').innerHTML = ''
 }
 
 /* ------------ */
