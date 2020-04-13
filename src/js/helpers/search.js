@@ -22,10 +22,15 @@ export async function searchiTunes(searchString, offset) {
         if (res.resultCount === 0) {
             return res.resultCount
         }
+        console.log(res)
 
         resultCount = res.resultCount
-        res.results.forEach((ret) => {
-            createItem(ret.artworkUrl100, ret.collectionName)
+        res.results.forEach((result) => {
+            createItem(
+                result.artworkUrl100,
+                result.collectionName,
+                result.trackId
+            )
         })
     })
     return resultCount

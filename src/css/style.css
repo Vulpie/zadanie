@@ -1,6 +1,7 @@
 :root{
   --primary: #2F2F2F;
   --bgc: #919191;
+  --bgc-modal: #9191917e;
   --secondary: #70AE6E;
   --accents: #BEEE62;
   --hover: #3C6E71;
@@ -283,6 +284,22 @@ body .main__menu-display-box-desc-btn {
   background-color: #3e8dbb;
   color: white;
   border: none;
+}
+
+body .main__modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgc-modal);
+}
+
+body .main__modal_button{
+  width: 100px;
+  height: 20px;
+  background-color: red;
+}
+body .main__modal_button:hover{
+  background-color: blue;
 }
 
 @media only screen and (max-width: 700px) {
