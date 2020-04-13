@@ -1,12 +1,12 @@
 import { createDisplay, createOutput } from './createElements'
 
 /**
- * @property {Function} searchForResults - Sending and receiving data from iTunes
+ * @property {Function} searchiTunes - Sending and receiving data from iTunes
  * @property {string} iTunesURL - iTunes api url. Contains searchString, entity type (song) and limits (200)
  * @async
  * @return void
  */
-export async function searchForResults(searchString, offset) {
+export async function searchiTunes(searchString, offset) {
     createDisplay()
     let iTunesURL = new URL('https://itunes.apple.com/search')
     iTunesURL.searchParams.set('term', searchString)
@@ -25,7 +25,6 @@ export async function searchForResults(searchString, offset) {
         res.results.forEach((ret) => {
             createOutput(ret.artworkUrl100, ret.collectionName)
         })
-        console.log(res)
     })
     return resultCount
 }

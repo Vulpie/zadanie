@@ -283,3 +283,8 @@ body .main__menu-display-box-desc-btn {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+
+button:disabled{
+  background-color: red!important;
+}

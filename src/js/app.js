@@ -5,8 +5,9 @@
  */
 
 import { clearDisplay, clearResultDisplay } from './clear'
-import { searchForResults } from './search'
+import { searchiTunes } from './search'
 import { createSearchSummaryDisplay } from './createElements'
+import { setButtonsStatus } from './buttonsController'
 
 /**
  * Anchor element for search button
@@ -27,25 +28,21 @@ $getSongInfo.addEventListener('click', () => {
 })
 
 $prevPage.addEventListener('click', () => {
-    console.log('--9')
-    if (offset !== 0) {
-        offset -= 9
-        search(searchPhrase)
-    }
+    offset -= 9
+    search(searchPhrase)
 })
 
 $nextPage.addEventListener('click', () => {
-    console.log('++9')
     offset += 9
     search(searchPhrase)
 })
 
 const search = async (searchString) => {
-    console.log('current offset: ', offset)
-    await clearDisplay()
-    await clearResultDisplay()
-    let iTunesResponseCount = searchForResults(searchString, offset)
+    clearDisplay()
+    clearResultDisplay()
+    let iTunesResponseCount = await searchiTunes(searchString, offset)
     createSearchSummaryDisplay(offset, iTunesResponseCount)
+    setButtonsStatus(offset, iTunesResponseCount)
 }
 
 /**
