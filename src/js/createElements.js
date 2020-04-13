@@ -1,6 +1,7 @@
 export function createDisplay() {
     let parent = document.getElementById('main__wrapper')
     let songsDisplay = document.createElement('div')
+    songsDisplay.classList.add('main__wrapper-output')
     songsDisplay.id = 'songs-display'
 
     parent.appendChild(songsDisplay)
@@ -43,7 +44,7 @@ export function createSearchSummaryDisplay(offset, iTunesResponseCount) {
 
     searchSummaryDisplay = document.createElement('div')
     searchSummaryDisplay.classList.add('main__wrapper-searchResult')
-    //searchSummaryDisplay.id = 'searchResult'
+    searchSummaryDisplay.id = 'search-result'
 
     paragraph = document.createElement('p')
     paragraph.classList.add('info')
