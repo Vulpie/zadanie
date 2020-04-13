@@ -1,6 +1,6 @@
-import { createItem } from './elements/item'
+import { createItem } from '../elements/item'
 
-import { createMainDisplay } from './elements/mainDisplay'
+import { createMainDisplay } from '../elements/mainDisplay'
 
 /**
  * @property {Function} searchiTunes - Sending and receiving data from iTunes

@@ -7,10 +7,10 @@ export function clearDisplay() {
     }
 }
 
-export function clearResultDisplay() {
+export function clearSearchSummary() {
     try {
-        let results = document.getElementById('search-result')
-        results.remove()
+        let element = document.getElementById('search-result')
+        element.remove()
     } catch (e) {
         console.log('No results to remove')
     }

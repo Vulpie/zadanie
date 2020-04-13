@@ -4,10 +4,10 @@
  * @see <a href="http://vojtas.pl">Portfolio</a>
  */
 
-import { clearDisplay, clearResultDisplay } from './clear'
-import { searchiTunes } from './search'
+import { clearDisplay, clearSearchSummary } from './helpers/clear'
+import { searchiTunes } from './helpers/search'
 import { createSearchSummary } from './elements/searchSummary'
-import { setButtonsStatus } from './buttonsController'
+import { setButtonsStatus } from './helpers/buttonsController'
 
 /**
  * Anchor element for search button
@@ -39,7 +39,7 @@ $nextPage.addEventListener('click', () => {
 
 const search = async (searchString) => {
     clearDisplay()
-    clearResultDisplay()
+    clearSearchSummary()
     let iTunesResponseCount = await searchiTunes(searchString, offset)
     createSearchSummary(offset, iTunesResponseCount)
     setButtonsStatus(offset, iTunesResponseCount)
