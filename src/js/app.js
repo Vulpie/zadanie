@@ -4,44 +4,49 @@
  * @see <a href="http://vojtas.pl">Portfolio</a>
  */
 
+import { clearDisplay, clearResultDisplay } from './clear'
 import { searchForResults } from './search'
-import {
-    createPaginationButtons,
-    createSearchSummaryDisplay,
-    createButtonPrevPage,
-    createButtonNextPage
-} from './createElements'
+import { createSearchSummaryDisplay } from './createElements'
 
 /**
  * Anchor element for search button
  * @type {Element}
  */
-const getSongInfo = document.getElementById('searchButton')
+const $getSongInfo = document.getElementById('searchButton')
+const $prevPage = document.getElementById('prevPage')
+const $nextPage = document.getElementById('nextPage')
+
 let offset = 0
 let searchPhrase
 
-getSongInfo.addEventListener('click', () => {
+$getSongInfo.addEventListener('click', () => {
     let searchString = document.getElementById('searchSongTextInput').value
-    if (searchPhrase !== searchString) {
-        offset = 0
-        searchPhrase = searchString
-    }
-    let iTunesResponseCount = searchForResults(searchString, offset)
-
-    if (iTunesResponseCount !== 0) {
-        createPaginationButtons()
-        if (offset === 0) {
-            createButtonNextPage()
-        } else if (offset !== 0 && iTunesResponseCount === 0) {
-            createButtonPrevPage()
-        } else {
-            createButtonNextPage()
-            createButtonPrevPage()
-        }
-    }
-
-    createSearchSummaryDisplay(offset, iTunesResponseCount)
+    offset = 0
+    searchPhrase = searchString
+    search(searchString)
 })
+
+$prevPage.addEventListener('click', () => {
+    console.log('--9')
+    if (offset !== 0) {
+        offset -= 9
+        search(searchPhrase)
+    }
+})
+
+$nextPage.addEventListener('click', () => {
+    console.log('++9')
+    offset += 9
+    search(searchPhrase)
+})
+
+const search = async (searchString) => {
+    console.log('current offset: ', offset)
+    await clearDisplay()
+    await clearResultDisplay()
+    let iTunesResponseCount = searchForResults(searchString, offset)
+    createSearchSummaryDisplay(offset, iTunesResponseCount)
+}
 
 /**
  * @property {Function} closeInfoDisplay - The function closing the display with additional informations about the song

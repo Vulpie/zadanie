@@ -1,52 +1,22 @@
-import { nextPage, prevPage } from './pagination'
-
-export function createPaginationButtons() {
-    let buttonBox = null
+export function createDisplay() {
     let parent = document.getElementById('main__wrapper')
+    let songsDisplay = document.createElement('div')
+    songsDisplay.id = 'songs-display'
 
-    buttonBox = document.createElement('div')
-    buttonBox.classList.add('main__wrapper-button-box')
-
-    parent.appendChild(buttonBox)
-}
-
-export function createButtonNextPage(offset, searchString) {
-    let parent = document.querySelector('.main__wrapper-button-box')
-    let nextButton = null
-
-    nextButton = document.createElement('button')
-    nextButton.classList.add('main__wrapper-button-box-pagination')
-    nextButton.innerHTML = 'next 	&gt;	&gt;'
-    //nextButton.addEventListener('click', nextPage(offset, searchString))
-    nextButton.onclick = nextPage(offset, searchString)
-
-    parent.appendChild(nextButton)
-}
-
-export function createButtonPrevPage(offset, searchString) {
-    let parent = document.querySelector('.main__wrapper-button-box')
-    let prevButton = null
-
-    prevButton = document.createElement('button')
-    prevButton.classList.add('main__wrapper-button-box-pagination')
-    prevButton.innerHTML = 'next 	&gt;	&gt;'
-    //prevButton.addEventListener('click', prevPage(offset, searchString))
-    prevButton.onclick = prevPage(offset, searchString)
-
-    parent.appendChild(prevButton)
+    parent.appendChild(songsDisplay)
 }
 
 export function createOutput(artworkUrl100, collectionName) {
-    let mainWrapper = null
+    let songWrapper = null
     let artIMG = null
     let songNameParagraph = null
     let viewMoreButton = null
-    let parent = document.getElementById('main__wrapper')
+    let parent = document.getElementById('songs-display')
 
-    mainWrapper = document.createElement('div')
-    mainWrapper.classList.add('main__wrapper-output-display-song')
+    songWrapper = document.createElement('div')
+    songWrapper.classList.add('main__wrapper-output-display-song')
+
     artIMG = document.createElement('img')
-
     artIMG.classList.add('main__wrapper-output-display-song-img')
     artIMG.src = artworkUrl100
 
@@ -59,11 +29,11 @@ export function createOutput(artworkUrl100, collectionName) {
     //viewMoreButton.onclick = getMoreInfo()
     viewMoreButton.innerHTML = '&#9776;'
 
-    mainWrapper.appendChild(artIMG)
-    mainWrapper.appendChild(songNameParagraph)
-    mainWrapper.appendChild(viewMoreButton)
+    songWrapper.appendChild(artIMG)
+    songWrapper.appendChild(songNameParagraph)
+    songWrapper.appendChild(viewMoreButton)
 
-    parent.appendChild(mainWrapper)
+    parent.appendChild(songWrapper)
 }
 
 export function createSearchSummaryDisplay(offset, iTunesResponseCount) {
@@ -73,6 +43,7 @@ export function createSearchSummaryDisplay(offset, iTunesResponseCount) {
 
     searchSummaryDisplay = document.createElement('div')
     searchSummaryDisplay.classList.add('main__wrapper-searchResult')
+    //searchSummaryDisplay.id = 'searchResult'
 
     paragraph = document.createElement('p')
     paragraph.classList.add('info')
