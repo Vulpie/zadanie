@@ -295,6 +295,8 @@ body .main__modal{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation-name: enter;
+  animation-duration: 1s;
 }
 
 body .main__modal_info{
