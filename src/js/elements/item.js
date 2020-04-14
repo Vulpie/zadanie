@@ -1,6 +1,6 @@
 import { getMoreInfo } from '../helpers/modal'
 
-export function createItem(artworkUrl100, collectionName, trackId) {
+export function createItem(trackInfo) {
     let songWrapper = null
     let artIMG = null
     let songNameParagraph = null
@@ -9,22 +9,21 @@ export function createItem(artworkUrl100, collectionName, trackId) {
 
     songWrapper = document.createElement('div')
     songWrapper.classList.add('main__wrapper-output-display-song')
-    songWrapper.id = trackId
 
     artIMG = document.createElement('img')
     artIMG.classList.add('main__wrapper-output-display-song-img')
-    artIMG.src = artworkUrl100
+    artIMG.src = trackInfo.artworkUrl100
 
     songNameParagraph = document.createElement('p')
     songNameParagraph.classList.add('main__wrapper-output-display-song-name')
-    songNameParagraph.innerHTML = collectionName
+    songNameParagraph.innerHTML = trackInfo.trackName
 
     viewMoreButton = document.createElement('button')
     viewMoreButton.classList.add('main__wrapper-output-display-song-btn')
     viewMoreButton.addEventListener('click', () => {
-        getMoreInfo()
+        getMoreInfo(trackInfo)
     })
-    viewMoreButton.innerHTML = '&#9776;'
+    viewMoreButton.innerHTML = 'More info'
 
     songWrapper.appendChild(artIMG)
     songWrapper.appendChild(songNameParagraph)
