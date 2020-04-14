@@ -1,5 +1,9 @@
+/**
+ * Display modal window with additional informations about the track
+ * @param {Object} trackInfo - This object contains information from iTunes API
+ */
+
 export function createModal(trackInfo) {
-    console.log('createModal')
     let parent = document.getElementById('main')
     let window = null
     let infoDisplay = null
@@ -64,6 +68,10 @@ export function createModal(trackInfo) {
     parent.appendChild(window)
 }
 
+/**
+ * Close modal window
+ * @return void
+ */
 function closeModal() {
     let modal = document.getElementById('infoModal')
     modal.remove()

@@ -1,5 +1,10 @@
-import { getMoreInfo } from '../helpers/modal'
+//import { getMoreInfo } from '../helpers/modal'
+import { createModal } from '../elements/modal'
 
+/**
+ *
+ * @param {Object} trackInfo This object contains information from iTunes API
+ */
 export function createItem(trackInfo) {
     let songWrapper = null
     let artIMG = null
@@ -21,7 +26,7 @@ export function createItem(trackInfo) {
     viewMoreButton = document.createElement('button')
     viewMoreButton.classList.add('main__wrapper-output-display-song-btn')
     viewMoreButton.addEventListener('click', () => {
-        getMoreInfo(trackInfo)
+        createModal(trackInfo)
     })
     viewMoreButton.innerHTML = 'More info'
 

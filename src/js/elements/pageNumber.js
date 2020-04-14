@@ -1,4 +1,9 @@
-export function createSearchSummary(offset, iTunesResponseCount) {
+/**
+ * Display offset of current search as a page number
+ * @param {number} offset - Position of the latest searc
+ * @param {number} responseCount - Amount of items returned by iTunes API
+ */
+export function createDisplayForPageNumber(offset, responseCount) {
     let parent = document.getElementById('main__wrapper')
     let searchSummaryDisplay = null
     let paragraph = null
@@ -10,7 +15,7 @@ export function createSearchSummary(offset, iTunesResponseCount) {
     paragraph = document.createElement('p')
     paragraph.classList.add('info')
 
-    if (iTunesResponseCount === 0) {
+    if (responseCount === 0) {
         paragraph.innerHTML = 'Sorry, no matches found'
     } else {
         paragraph.innerHTML = `<h4>${offset} - ${offset + 9}</h4>`

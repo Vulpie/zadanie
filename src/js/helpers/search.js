@@ -3,10 +3,11 @@ import { createItem } from '../elements/item'
 import { createMainDisplay } from '../elements/mainDisplay'
 
 /**
- * @property {Function} searchiTunes - Sending and receiving data from iTunes
- * @property {string} iTunesURL - iTunes api url. Contains searchString, entity type (song) and limits (200)
+ * Sending and receiving data from iTunes
+ * @param {string} iTunesURL - iTunes api url. Contains searchString, entity type (song), limits (9) and offset
+ * @param {number} offset - Position of the latest searc
  * @async
- * @return void
+ * @returns {number} - Amount of items returned by iTunes API
  */
 export async function searchiTunes(searchString, offset) {
     createMainDisplay()
@@ -38,19 +39,3 @@ export async function searchiTunes(searchString, offset) {
     })
     return resultCount
 }
-
-// const item = {
-//     item_id: '',
-//     img_url: '',
-//     songName: '',
-//     arrtistName: '',
-//     rating: ''
-// }
-// item.item_id = appState.item_id_glob
-// item.img_url = ret.artworkUrl100
-// item.songName = ret.collectionName
-// item.arrtistName = ret.artistName
-
-// item.price = ret.collectionPrice
-// item.currency = ret.currency
-// item.genre = ret.primaryGenreName
