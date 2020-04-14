@@ -8,6 +8,7 @@ export function createModal(trackInfo) {
     let releaseDate = null
     let trackImage = null
     let trackTime = null
+    let trackPrice = null
 
     let time = trackInfo.trackTimeMillis
     time = time * 0.001
@@ -36,6 +37,10 @@ export function createModal(trackInfo) {
     releaseDate.classList.add('main__modal_info_p')
     releaseDate.innerHTML = `Release date: ${trackInfo.releaseDate}`
 
+    trackPrice = document.createElement('p')
+    trackPrice.classList.add('main__modal_info_p')
+    trackPrice.innerHTML = `Track price: ${trackInfo.trackPrice}`
+
     trackImage = document.createElement('img')
     trackImage.classList.add('main__modal_info_img')
     trackImage.src = trackInfo.artworkUrl100
@@ -52,6 +57,7 @@ export function createModal(trackInfo) {
     infoDisplay.appendChild(collectionName)
     infoDisplay.appendChild(releaseDate)
     infoDisplay.appendChild(trackTime)
+    infoDisplay.appendChild(trackPrice)
     infoDisplay.appendChild(button)
 
     window.appendChild(infoDisplay)

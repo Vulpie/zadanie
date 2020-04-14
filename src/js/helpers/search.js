@@ -30,7 +30,6 @@ export async function searchiTunes(searchString, offset) {
                 trackName: result.trackName,
                 collectionName: result.collectionName,
                 releaseDate: result.releaseDate,
-                artistViewURL: result.artistViewURL,
                 trackPrice: result.trackPrice,
                 trackTimeMillis: result.trackTimeMillis
             }
