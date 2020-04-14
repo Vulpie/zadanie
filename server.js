@@ -14,7 +14,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.post('/songs', async (req, res) => {
-    console.log('elo')
     let iTunesURL = new URL('https://itunes.apple.com/search')
     const { searchString, offset } = req.body
 
