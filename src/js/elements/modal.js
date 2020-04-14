@@ -42,7 +42,7 @@ export function createModal(trackInfo) {
 
     let button = document.createElement('button')
     button.innerHTML = 'Close'
-    button.classList.add('main__modal_button')
+    button.classList.add('main__modal_info_button')
     button.addEventListener('click', () => {
         closeModal()
     })
@@ -52,9 +52,9 @@ export function createModal(trackInfo) {
     infoDisplay.appendChild(collectionName)
     infoDisplay.appendChild(releaseDate)
     infoDisplay.appendChild(trackTime)
+    infoDisplay.appendChild(button)
 
     window.appendChild(infoDisplay)
-    window.appendChild(button)
     parent.appendChild(window)
 }
 

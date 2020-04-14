@@ -314,15 +314,15 @@ body .main__modal_info_img{
   height: 200px;
 }
 
-body .main__modal_button{
-  width: 100px;
-  height: 20px;
+body .main__modal_info_button{
   background-color: var(--accents);
   color: var(--secondary);
   border: none;
   border-radius: 5px;
+  font-weight: 700;
+  padding: 10px 20px;
 }
-body .main__modal_button:hover{
+body .main__modal_info_button:hover{
   background-color: var(--secondary);
   color: var(--accents);
   cursor: pointer;
