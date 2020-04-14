@@ -1,7 +1,9 @@
 
-# iTunes API application
+# iTunes Music Search
 
-This is a simple JavaScript app to look through iTunes songs
+This is example app made with iTunes API
+
+[Live example](https://music-search-api-app.herokuapp.com/)
 
 ---
 
@@ -13,16 +15,16 @@ Install required dependencies
     npm install
 ```
 
-Run webpack in development mode
-
-```bash
-    npm run webpack-dev
-```
-
-Or create a bundle with
+Build bundle with webpack
 
 ```bash
     npm run build
+```
+
+Run application
+
+```bash
+    npm run start
 ```
 
 ---
