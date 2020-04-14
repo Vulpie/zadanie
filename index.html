@@ -9,12 +9,12 @@
             href="https://fonts.googleapis.com/css?family=Lato&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="src/style.css" />
+        <link rel="stylesheet" href="dist/css/style.css" />
     </head>
 
     <body>
-        <div class="main">
-            <div class="main__menu">
+        <div class="main" id="main">
+            <div class="main__menu" id="main__menu">
                 <h3 class="main__menu-title">iTunes api</h3>
                 <input type="text" id="searchSongTextInput" placeholder="Search songs.." class="main__menu-input"/>
                 <button id="searchButton" class="main__menu-button">serach</button>
@@ -23,17 +23,14 @@
                 </div>
             </div>
 
-            <div class="main__wrapper">
-                <div id="searchResult" class="main__wrapper-searchResult"></div>
-                
-                <div id="output" class="main__wrapper-output"></div>
-                <div id="button-box" class="main__wrapper-button-box"></div>
+            <div class="main__wrapper" id="main__wrapper">
+                <div class="main__wrapper-button-box">
+                    <button class="main__wrapper-button-box-pagination" id="prevPage">&lt;	&lt; prev</button>
+                    <button class="main__wrapper-button-box-pagination" id="nextPage">next 	&gt;	&gt;</button>
+                </div>
             </div>
-            
-
-            
         </div>
 
-        <script src="src/app.js"></script>
+        <script src="dist/js/app.bundle.js"></script>
     </body>
 </html>
