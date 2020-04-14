@@ -1,10 +1,13 @@
 {
   "name": "itunesapp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple appfor iTunes music search",
   "main": "app.js",
   "dependencies": {
-    "jsdoc": "^3.6.3"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsdoc": "^3.6.3",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
@@ -13,7 +16,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "doc": "jsdoc -c jsdoc.json",
     "out": "jsdoc src/app.js",
     "build": "webpack --mode production",
@@ -21,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vulpie/zadanie.git"
+    "url": "https://github.com/Vulpie/itunes_api_application"
   },
   "author": "Wojtaś Filip",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vulpie/zadanie/issues"
+    "url": "https://github.com/Vulpie/itunes_api_application"
   },
-  "homepage": "https://github.com/Vulpie/zadanie#readme"
+  "homepage": ""
 }

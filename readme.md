@@ -1,11 +1,29 @@
 
 # iTunes API application
 
-<<<<<<< HEAD
-This is a simple JavaScript app using iTunes API to 
-=======
-This is a simple JavaScript app using iTunes API to
->>>>>>> webpack
+This is a simple JavaScript app to look through iTunes songs
+
+---
+
+## Installation
+
+Install required dependencies
+
+```bash
+    npm install
+```
+
+Run webpack in development mode
+
+```bash
+    npm run webpack-dev
+```
+
+Or create a bundle with
+
+```bash
+    npm run build
+```
 
 ---
 
@@ -13,8 +31,6 @@ This is a simple JavaScript app using iTunes API to
 
 * HTML
 * JavaScript
-<<<<<<< HEAD
 * CSS / Scss
-=======
-* CSS / Scss
->>>>>>> webpack
+* JSDoc
+* Wabpack

@@ -11,14 +11,17 @@ import { createMainDisplay } from '../elements/mainDisplay'
  */
 export async function searchiTunes(searchString, offset) {
     createMainDisplay()
-    let iTunesURL = new URL('https://itunes.apple.com/search')
-    iTunesURL.searchParams.set('term', searchString)
-    iTunesURL.searchParams.append('entity', 'song')
-    iTunesURL.searchParams.append('limit', 9)
-    iTunesURL.searchParams.append('offset', offset)
-
     let resultCount
-    const data = await fetch(iTunesURL)
+
+    const data = await fetch('/songs', {
+        method: 'post',
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ searchString: searchString, offset: offset })
+    })
+
     await data.json().then((res) => {
         if (res.resultCount === 0) {
             return res.resultCount
