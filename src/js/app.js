@@ -19,6 +19,7 @@ const $nextPage = document.getElementById('nextPage')
 
 let offset = 0
 let searchPhrase
+setButtonsStatus(offset, 0, searchPhrase)
 
 $getSongInfo.addEventListener('click', () => {
     let searchString = document.getElementById('searchSongTextInput').value
@@ -42,7 +43,7 @@ const search = async (searchString) => {
     clearSearchSummary()
     let iTunesResponseCount = await searchiTunes(searchString, offset)
     createSearchSummary(offset, iTunesResponseCount)
-    setButtonsStatus(offset, iTunesResponseCount)
+    setButtonsStatus(offset, iTunesResponseCount, searchString)
 }
 
 /* ------------ */

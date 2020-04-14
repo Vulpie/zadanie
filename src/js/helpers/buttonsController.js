@@ -1,4 +1,4 @@
-export const setButtonsStatus = (offset, responseCount) => {
+export const setButtonsStatus = (offset, responseCount, searchString) => {
     let prevPage = document.getElementById('prevPage')
     let nextPage = document.getElementById('nextPage')
 
@@ -10,6 +10,11 @@ export const setButtonsStatus = (offset, responseCount) => {
         nextPage.disabled = false
     } else if (offset !== 0 && responseCount < 9) {
         prevPage.disabled = false
+        nextPage.disabled = true
+    }
+
+    if (!searchString) {
+        prevPage.disabled = true
         nextPage.disabled = true
     }
 }
