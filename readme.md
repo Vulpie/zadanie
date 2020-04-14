@@ -32,5 +32,6 @@ Or create a bundle with
 * HTML
 * JavaScript
 * CSS / Scss
+* Node.js
 * JSDoc
-* Wabpack
+* webpack
