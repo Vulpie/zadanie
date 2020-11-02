@@ -1,7 +1,7 @@
 
 # iTunes Music Search
 
-This is example app made with iTunes API
+Sample app using iTunes API to search for songs by artist or title
 
 [Live example](https://music-search-api-app.herokuapp.com/)
 
